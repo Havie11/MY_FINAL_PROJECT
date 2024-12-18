@@ -2,17 +2,21 @@
 def programenu():
 
     print("Hi! Welcome to this Program")
-    ask = input("MENU LISTS \n1. ESCAPE SEQUENCE \n2. ARITHMETIC OPERATORS \n3. ASSIGNMENT OPERATORS \n4. RELATIONAL OPERATORS \n5. LOGICAL OPERATORS \n6. CONDITIONAL STATEMENTS \n7. LOOPING STATEMENTS \n8. FOR LOOP \n9. WHILE LOOP \n10. MENU LISTS \n11. EXIT \nENTER YOUR CHOICE HERE:  ")
+    ask = input("\nMENU LISTS \n1. ESCAPE SEQUENCE \n2. ARITHMETIC OPERATORS \n3. ASSIGNMENT OPERATORS \n4. RELATIONAL OPERATORS \n5. LOGICAL OPERATORS \n6. CONDITIONAL STATEMENTS \n7. LOOPING STATEMENTS \n8. FOR LOOP \n9. WHILE LOOP \n10. EXIT \nENTER YOUR CHOICE HERE:  ")
     
     while True:
         if ask == "1":
+            print("\n=====================================================================")
             print("\nWELCOME! HERE'S THE ESCAPE SEQUENCE")
             print("\nFirst, we must know what does the Escape Sequence means. \n\nEscape sequences are special character combinations used to represent characters that are \ndifficult or impossible to type directly, such as newline, tab, or backslash itself. \nThey are preceded by a backslash () and followed by a specific character.")
+            print("\n=====================================================================")
             break
 
         elif ask == "2":
+            print("\n=====================================================================")
             print("\nWELCOME! HERE'S THE ARITHMETIC OPERATORS")
             print("\nWhat are the Arithmetic Operators? \n\nSo these are symbols used in programming languages to perform mathematical operations. \nThey are essential for calculations and manipulating numerical data. \n\nHere's a breakdown of common arithmetic operators:")
+            print("\n=====================================================================")
             que = input("\n1. ADDITION \n2. SUBTRACTION \n3. MULTIPLICATION \n4. DIVISION \n5. MODULUS \n6. EXPONENTIATION \n7. FLOOR DIVISION \nINPUT YOUR CHOICE HERE:  ")
             
             while True:
@@ -336,6 +340,7 @@ def programenu():
             print("\nWELCOME! HERE'S THE ASSIGNMENT OPERATORS")
             print("\nAssignment operations are used to assign values to variables in programming. \nThey are a fundamental part of how you store and manipulate data.")
             print("Here's a breakdown of common assignment operations:")
+            print("\n=====================================================================")
             print("\nAugmented Assignment: \nThese operators combine an arithmetic operation with assignment, making code more concise.")
             print("+=   (Add and Assign): Adds the right operand to the left operand and assigns the result to the left operand.")
             print("-=   (Subtract and Assign): Subtracts the right operand from the left operand and assigns the result to the left operand.")
@@ -463,28 +468,307 @@ def programenu():
             play_relational_game()
             break
         elif ask == "5":
+            print("\n============================================================================================================")
             print("WELCOME! HERE'S THE LOGICAL OPERATORS")
             print("Logical operators are used to combine or manipulate boolean expressions (expressions that evaluate to either True or False). \nThey allow you to create more complex conditions based on the truth values of simpler expressions.")
+            print("Here's a breakdown of common logical operators:")
+            print("\n============================================================================================================")
+            print("Operator	                    Meaning                                Example	            Result")
+            print("\n============================================================================================================")
+            print("  and	    Logical AND: Returns True if both operands are True;      (5 > 2) and (10 < 20)	    True")
+            print("                         otherwise, it returns False.")
+            print("\n============================================================================================================")
+            print("   or	    Logical OR: Returns True if at least one operand is       (5 > 10) or (10 < 20)	    True")
+            print("           True; it returns False only if both operands are False.")
+            print("\n============================================================================================================")
+            print("  not	    Logical NOT: Inverts the truth value of its operand.           not (5 > 10)	            True")
+            print("           If the operand is True, it returns False; if the operand")
+            print("                         is False, it returns True.")
+            print("\n============================================================================================================")
+            print("\n\n=====================================================================")
+            print("\nHERE I HAVE SOME GAME FOR YOU!")
+            print("\n=====================================================================")
+            import random
+            import time
+
+            def generate_logical_expression():
+                """Generates a random logical expression with two operands and an operator."""
+                operands = [random.randint(1, 100) > 50, random.randint(1, 100) < 75]  # Boolean operands
+                operator = random.choice(["and", "or"])
+                return f"{operands[0]} {operator} {operands[1]}"
+
+            def play_logical_game():
+                """Main function for the logical operations game."""
+                print("Welcome to the Logical Operator Challenge!")
+                print("You'll be given a logical expression. Your goal is to determine if it's True or False.")
+
+                score = 0
+                num_rounds = 5  # You can adjust the number of rounds
+
+                for round_num in range(1, num_rounds + 1):
+                    print(f"\nRound {round_num}:")
+                    expression = generate_logical_expression()
+                    print(f"Expression: {expression}")
+
+                    while True:
+                        try:
+                            answer = input("Is the expression True or False? (True/False): ").lower()
+                            if answer in ["true", "false"]:
+                                break
+                            else:
+                                print("Invalid input. Please enter 'True' or 'False'.")
+                        except ValueError:
+                            print("Invalid input. Please enter 'True' or 'False'.")
+
+                    correct_answer = str(eval(expression)).lower()
+                    if answer == correct_answer:
+                        print("Correct!")
+                        score += 1
+                    else:
+                        print(f"Incorrect. The correct answer was {correct_answer}.")
+
+                    time.sleep(1)  # Pause for a moment
+
+                print(f"\nGame Over! Your final score is {score}/{num_rounds}")
+                if score >= num_rounds // 3:
+                    print("Congratulations! You're a logical operator master!")
+                else:
+                    print("Keep practicing your logical skills!")
+            print("\n=====================================================================")
+            play_logical_game()
             break
         elif ask == "6":
+            print("\n=====================================================================")
             print("WELCOME! HERE'S THE CONDITIONAL STATEMENTS")
+            print("Conditional statements, also known as control flow statements, \nallow you to execute different blocks of code based on whether a condition is true or false. \nThey are fundamental to creating programs that can make decisions \nand respond dynamically to different situations.")
+            print("Here's a breakdown of the main types of conditional statements in most programming languages (illustrated with Python):")
+            print("\n=====================================================================")
+            print("\n1. if statement")
+            print("The simplest form executes a block of code only if a condition is true.")
+            print("\n=====================================================================")
+            print("\n2. if-else statement")
+            print("This allows you to execute one block of code if the condition is true and a different block if it's false.")
+            print("\n=====================================================================")
+            print("\n3. if-elif-else statement")
+            print("This handles multiple conditions sequentially. \nThe first condition that evaluates to true will have its associated block executed; the rest are skipped. \nThe else block (optional) is executed only if none of the preceding conditions are true.")
+            print("\n=====================================================================")
+
+            def demonstrate_conditionals():
+                """Demonstrates various types of conditional statements."""
+
+                age = int(input("Enter your age: "))
+                has_license = input("Do you have a driver's license? (yes/no): ").lower() == "yes"
+
+                print("\n--- Conditional Statements ---")
+
+                # Simple if-else
+                if age >= 18:
+                    print("You are an adult.")
+                else:
+                    print("You are a minor.")
+
+                # if-elif-else
+                if age >= 65:
+                    print("You are a senior citizen.")
+                elif age >= 18:
+                    print("You are an adult.")
+                else:
+                    print("You are a minor.")
+
+                # Nested conditionals
+                if age >= 16:
+                    if has_license:
+                        print("You can drive.")
+                    else:
+                        print("You are old enough to get a driver's license.")
+                else:
+                    print("You are too young to drive.")
+
+                # Boolean logic (and, or, not)
+                is_eligible = age >= 18 and has_license  # Must be 18 or older AND have a license
+                if is_eligible:
+                    print("You are eligible to rent a car.")
+                else:
+                    print("You are not eligible to rent a car.")
+
+                is_eligible_vote = age >= 18 or age < 18 and not has_license # You can vote if you're 18 or older.
+                if is_eligible_vote:
+                    print("You are eligible to vote.")
+                else:
+                    print("You are too young to vote.")
+
+                #Example with multiple conditions and data types
+                temperature = 25
+                weather = "sunny"
+
+                if temperature > 30 and weather == "sunny":
+                    print("It's a scorching hot sunny day!")
+                elif temperature > 20 and weather == "sunny":
+                    print("It's a pleasant sunny day.")
+                elif temperature > 20 and weather == "cloudy":
+                    print("It's a pleasant cloudy day.")
+                else:
+                    print("The weather is not so good.")
+
+            print("\n=====================================================================")
+            # Run the demonstration
+            demonstrate_conditionals()
             break
         elif ask == "7":
+            print("\n=====================================================================")
             print("WELCOME! HERE'S THE LOOPING STATEMENTS")
+            print("Looping statements are a fundamental part of programming, \nallowing you to repeat a block of code multiple times. \nPython offers two main types of loops: for loops and while loops.")
+            print("\n=====================================================================")
+            print("\nHERE'S A GAME FOR YOU!")
+            print("\n=====================================================================")
+
+            import random
+
+            def number_guessing_game():
+                """Plays a number guessing game with the user."""
+
+                secret_number = random.randint(1, 100)  # Generates a random number between 1 and 100
+                guesses_left = 7
+                print("Welcome to the Number Guessing Game!")
+                print("I'm thinking of a number between 1 and 100.")
+
+                while guesses_left > 0:
+                    print(f"\nYou have {guesses_left} guesses left.")
+                    try:
+                        guess = int(input("Take a guess: "))
+                    except ValueError:
+                        print("Invalid input. Please enter a number.")
+                        continue  # Skips to the next iteration of the loop
+
+                    if guess < secret_number:
+                        print("Too low!")
+                    elif guess > secret_number:
+                        print("Too high!")
+                    else:
+                        print(f"Congratulations! You guessed the number {secret_number} in {7 - guesses_left} tries!")
+                        return  # Exits the function
+
+                    guesses_left -= 1
+
+                print(f"\nYou ran out of guesses. The number was {secret_number}.")
+            
+            number_guessing_game()
             break
         elif ask == "8":
-            print("WELCOME! HERE'S THE FOR LOOP")
+            print("\n=====================================================================")
+            print("\nWELCOME! HERE'S THE FOR LOOP")
+            print("The for loop is a fundamental control flow statement in many programming languages, including Python. \nIt's used to iterate over a sequence (like a list, tuple, string, or range) or other iterable object, \nexecuting a block of code for each item in the sequence.")
+            print("The general structure of a for loop is: \nfor item in sequence: \n# Code to be executed for each item")
+            print("\n=====================================================================")
+            print("item: A variable that takes on the value of each element in the sequence during each")
+            print("      iteration. You choose the name item; it doesn't have to be 'item'.")
+            print("\n=====================================================================")
+            print("sequence: An iterable object (like a list, tuple, string, range, etc.) that provides \nthe values for the loop to process.")
+            print("\n=====================================================================")
+            print("# Code to be executed...: The indented block of code that will be executed repeatedly \nfor each item in the sequence.")
+            print("\n=====================================================================")
+            print("\nHERE'S A FUN GAME FOR YOU!")
+            print("\n=====================================================================")
+            
+            # Example 1: Getting the number of greetings from the user
+
+            num_greetings = int(input("How many times do you want to say hello? "))
+            print("\nExample 1: Personalized Greetings")
+            for i in range(num_greetings):
+                print("Hello!")
+
+
+            # Example 2: Getting a list of items from the user
+
+            num_items = int(input("\nHow many items do you want to list? "))
+            items = []
+            print("Example 2: Listing Items")
+            for i in range(num_items):
+                item = input(f"Enter item {i+1}: ")
+                items.append(item)
+
+            print("Your list:", items)
+
+
+            # Example 3: Calculating the sum of numbers provided by the user
+
+            num_numbers = int(input("\nHow many numbers do you want to add? "))
+            total = 0
+            print("Example 3: Summing Numbers")
+            for i in range(num_numbers):
+                while True:
+                    try:
+                        number = float(input(f"Enter number {i+1}: "))
+                        total += number
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter a number.")
+
+            print(f"The sum is: {total}")
+
+
+            # Example 4:  A simple guessing game using a for loop and user input
+            import random
+
+            secret_number = random.randint(1,100)
+            guesses_left = 7
+            print("\nExample 4: Number Guessing Game")
+            print("I'm thinking of a number between 1 and 100.")
+
+            for i in range(guesses_left):
+                while True:
+                    try:
+                        guess = int(input(f"You have {guesses_left - i} guesses left.  What's your guess? "))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter a number.")
+
+                if guess < secret_number:
+                    print("Too low!")
+                elif guess > secret_number:
+                    print("Too high!")
+                else:
+                    print(f"Congratulations! You guessed the number {secret_number} in {i+1} tries.")
+                    break
+
+            if guess != secret_number:
+                print(f"You ran out of guesses. The number was {secret_number}.")
+
+            print("\n=====================================================================")
             break
+
         elif ask == "9":
-            print("WELCOME! HERE'S THE WHILE LOOP")
+            print("\n=====================================================================")
+            print("\nWELCOME! HERE'S THE WHILE LOOP")
+            print("A while loop in programming is a control flow statement that repeatedly \nexecutes a block of code as long as a certain condition remains true. \nIt's like saying, 'Keep doing this until something changes.'")
+            print("\n=====================================================================")
+            print("\nHERE'S A FUN GAME TO PLAY!")
+            print("\n=====================================================================")
+
+            import random
+            import time
+
+            def reaction_time_game():
+                print("Get ready...")
+                time.sleep(random.uniform(2, 5))  # Wait a random time between 2 and 5 seconds
+                start_time = time.time()
+                input("Press Enter!")
+                end_time = time.time()
+                reaction_time = end_time - start_time
+                print(f"Your reaction time was: {reaction_time} seconds")
+
+            reaction_time_game()
+            print("\n=====================================================================")
             break
         elif ask == "10":
-            print("WELCOME! HERE'S THE MENU LISTS")
-            break
-        elif ask == "11":
-            print("THANK YOU FOR USING THE PROGRAM!")
+            print("\n=====================================================================")
+            print("\nTHANK YOU FOR USING THE PROGRAM!")
+            print("\n=====================================================================")
             break
         else:
-            print("INVALID INPUT!")
+            print("\n=====================================================================")
+            print("\nINVALID INPUT!")
+            print("\n=====================================================================")
             break
+    
 programenu()
